@@ -2,15 +2,14 @@ import torch
 import torch.nn as nn
 
 class SimpleMNISTModel(nn.Module):
-    def __init__(self):
+    def __init__(self, dropout_rate=0):
         super(SimpleMNISTModel, self).__init__()
         self.flatten = nn.Flatten()
         self.linear_relu_stack = nn.Sequential(
-            nn.Linear(28*28, 512),
+            nn.Linear(28*28, 256)  ,
             nn.ReLU(),
-            nn.Linear(512, 512),
-            nn.ReLU(),
-            nn.Linear(512, 10),
+            nn.Dropout(dropout_rate),
+            nn.Linear(256, 10) ,
         )
 
     def forward(self, x):
