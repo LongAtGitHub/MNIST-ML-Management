@@ -3,4 +3,3 @@ torchvision
 torch
 flask
 flask-cors
-scikit-learn
