@@ -1,3 +1,7 @@
+import sys
+sys.path.append('../model')
+# pylint:disable=<symbol> 
+from simple_model import SimpleMNISTModel 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import torch
@@ -5,9 +9,8 @@ import torch.nn as nn
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader, Subset
-import sys  
-sys.path.append('../model')
-from simple_model import SimpleMNISTModel  # Adjust the import path as necessary
+  
+
 
 app = Flask(__name__)
 CORS(app)
